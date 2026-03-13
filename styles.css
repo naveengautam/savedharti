@@ -497,20 +497,6 @@ select {
   overflow: hidden;
 }
 
-.site-footer p {
-  margin: 0;
-  color: var(--muted);
-  position: relative;
-  z-index: 2;
-}
-
-.birds {
-  position: absolute;
-  inset: 1rem 0 auto;
-  height: 3rem;
-  pointer-events: none;
-}
-
 .bird {
   position: absolute;
   width: 2rem;
@@ -558,6 +544,8 @@ select {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
+  z-index: 1;
+
 }
 
 .tree {

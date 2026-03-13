@@ -23,6 +23,7 @@ body {
     linear-gradient(135deg, #02101d, #052238 45%, #0b3a2e);
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   overflow-x: hidden;
+  padding-bottom: 0;
 }
 
 a {
@@ -103,6 +104,8 @@ nav {
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   padding: 6rem 0 3.5rem;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -133,6 +136,12 @@ h1 {
 .hero-content p {
   color: var(--muted);
   max-width: 58ch;
+}
+
+.hero-content,
+.hero-orb-wrap {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-actions {
@@ -283,7 +292,7 @@ button {
 
 .volunteer {
   margin-top: 2.6rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.2rem;
   border-radius: 1.4rem;
   padding: 1.5rem;
   display: grid;
@@ -324,6 +333,273 @@ select {
   transform: translateY(0);
 }
 
+.tiger {
+  position: absolute;
+  left: -26rem;
+  bottom: 0.9rem;
+  width: 24rem;
+  height: 8.6rem;
+  z-index: 1;
+  opacity: 0.93;
+  pointer-events: none;
+  animation: tigerHeroWalk 18s linear infinite;
+}
+
+.tiger span {
+  position: absolute;
+}
+
+.tiger-body {
+  left: 2.8rem;
+  top: 1.6rem;
+  width: 14.2rem;
+  height: 4.2rem;
+  border-radius: 2.4rem;
+  background: linear-gradient(90deg, #c9761f 0%, #e28a22 34%, #f5a534 72%, #ffbe51 100%);
+  box-shadow: inset -16px -8px 0 rgba(126, 64, 12, 0.28), 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tiger-belly {
+  left: 4.1rem;
+  top: 3.5rem;
+  width: 10.8rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f7c98b, #ffe1b0);
+}
+
+.tiger-tail {
+  left: 0.3rem;
+  top: 2.4rem;
+  width: 4rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #9f5818, #de8e29);
+  transform-origin: right center;
+  animation: tailSwish 0.65s ease-in-out infinite alternate;
+}
+
+.tiger-tail::after {
+  content: "";
+  position: absolute;
+  left: -0.7rem;
+  top: 0;
+  width: 1rem;
+  height: 0.9rem;
+  border-radius: 0.8rem;
+  background: #30200f;
+}
+
+.tiger-head {
+  right: 3.1rem;
+  top: 1.1rem;
+  width: 5.2rem;
+  height: 4.8rem;
+  border-radius: 55% 45% 52% 48%;
+  background: linear-gradient(130deg, #f6b047, #d88225 75%);
+  box-shadow: inset -8px -5px 0 rgba(126, 61, 7, 0.22);
+}
+
+.tiger-ear {
+  top: -0.9rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50% 50% 35% 35%;
+  background: #d27e25;
+}
+
+.tiger-ear::after {
+  content: "";
+  position: absolute;
+  left: 0.24rem;
+  top: 0.28rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: inherit;
+  background: #ffd0a6;
+}
+
+.tiger-ear-left { left: 0.7rem; }
+.tiger-ear-right { right: 0.7rem; }
+
+.tiger-eye {
+  left: 2.9rem;
+  top: 1.8rem;
+  width: 0.8rem;
+  height: 0.38rem;
+  border-top: 3px solid #1d1209;
+  border-radius: 999px;
+}
+
+.tiger-nose {
+  left: 3.36rem;
+  top: 2.78rem;
+  width: 0.56rem;
+  height: 0.42rem;
+  border-radius: 40% 40% 60% 60%;
+  background: #24150d;
+}
+
+.tiger-muzzle {
+  left: 2.55rem;
+  top: 2.5rem;
+  width: 1.9rem;
+  height: 1.3rem;
+  border-radius: 45% 55% 55% 45%;
+  background: #f6d7b2;
+}
+
+.tiger-stripe {
+  width: 0.55rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(48, 28, 11, 0.76);
+  top: 1.95rem;
+}
+
+.stripe-one { left: 5rem; }
+.stripe-two { left: 7.2rem; }
+.stripe-three { left: 9.3rem; }
+.stripe-four { left: 11.5rem; }
+
+.tiger-leg {
+  top: 5.2rem;
+  width: 1.25rem;
+  height: 2.8rem;
+  border-radius: 0 0 0.95rem 0.95rem;
+  background: linear-gradient(180deg, #e28f2d, #bc6d19);
+  transform-origin: top center;
+  animation: legStep 0.36s ease-in-out infinite alternate;
+}
+
+.tiger-leg::after {
+  content: "";
+  position: absolute;
+  bottom: -0.25rem;
+  left: -0.12rem;
+  width: 1.45rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #f8c888;
+}
+
+.leg-one { left: 5rem; }
+.leg-two { left: 8rem; animation-delay: 0.18s; }
+.leg-three { left: 12rem; animation-delay: 0.1s; }
+.leg-four { left: 14.5rem; animation-delay: 0.26s; }
+
+.site-footer {
+  position: relative;
+  padding: 6.4rem 1rem 1.6rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, rgba(8, 40, 52, 0.55), rgba(5, 20, 25, 0.92));
+  overflow: hidden;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  position: relative;
+  z-index: 2;
+}
+
+.birds {
+  position: absolute;
+  inset: 1rem 0 auto;
+  height: 3rem;
+  pointer-events: none;
+}
+
+.bird {
+  position: absolute;
+  width: 2rem;
+  height: 1rem;
+  border-top: 2px solid rgba(235, 255, 245, 0.8);
+  border-radius: 999px;
+  transform: rotate(-6deg);
+  animation: birdFly 13s linear infinite;
+}
+
+.bird::after {
+  content: "";
+  position: absolute;
+  width: 2rem;
+  height: 1rem;
+  border-top: 2px solid rgba(235, 255, 245, 0.8);
+  border-radius: 999px;
+  left: 1.1rem;
+  top: -0.05rem;
+}
+
+.bird-one {
+  left: -8%;
+  top: 0.2rem;
+}
+
+.bird-two {
+  left: -24%;
+  top: 1rem;
+  animation-delay: 3s;
+  transform: scale(0.9);
+}
+
+.bird-three {
+  left: -34%;
+  top: 0.5rem;
+  animation-delay: 6s;
+  transform: scale(1.2);
+}
+
+.tree-line {
+  position: absolute;
+  inset: auto 0 0;
+  height: 5.4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.tree {
+  position: relative;
+  width: 1rem;
+  height: 2.4rem;
+  background: #5f3513;
+  border-radius: 0.4rem;
+}
+
+.tree::before,
+.tree::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #63dd93, #178d4d);
+}
+
+.tree::before {
+  width: 3.2rem;
+  height: 2.8rem;
+  bottom: 1.7rem;
+}
+
+.tree::after {
+  width: 2.4rem;
+  height: 2.2rem;
+  bottom: 2.9rem;
+}
+
+.tree-one,
+.tree-three {
+  transform: scale(1.05);
+}
+
+.tree-two,
+.tree-four {
+  transform: scale(0.88);
+}
+
 @keyframes blob {
   0% {
     border-radius: 40% 60% 55% 45% / 43% 40% 60% 57%;
@@ -345,6 +621,42 @@ select {
   }
 }
 
+@keyframes tigerHeroWalk {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100vw + 24rem));
+  }
+}
+
+@keyframes tailSwish {
+  from {
+    transform: rotate(-18deg);
+  }
+  to {
+    transform: rotate(22deg);
+  }
+}
+
+@keyframes legStep {
+  from {
+    transform: rotate(18deg);
+  }
+  to {
+    transform: rotate(-18deg);
+  }
+}
+
+@keyframes birdFly {
+  from {
+    transform: translateX(0) translateY(0);
+  }
+  to {
+    transform: translateX(130vw) translateY(-0.4rem);
+  }
+}
+
 @media (max-width: 920px) {
   nav {
     display: none;
@@ -362,5 +674,12 @@ select {
   .campaign-grid,
   .metrics {
     grid-template-columns: 1fr;
+  }
+
+  .tiger {
+    width: 16rem;
+    height: 6rem;
+    left: -18rem;
+    bottom: 0.4rem;
   }
 }

@@ -495,31 +495,6 @@ select {
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   background: linear-gradient(180deg, rgba(8, 40, 52, 0.55), rgba(5, 20, 25, 0.92));
   overflow: hidden;
-  isolation: isolate;
-}
-
-.site-footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("assets/footer-forest-bg.svg") center / cover no-repeat;
-  opacity: 0.24;
-  z-index: 0;
-}
-
-.site-footer p {
-  margin: 0;
-  color: var(--muted);
-  position: relative;
-  z-index: 2;
-}
-
-.birds {
-  position: absolute;
-  inset: 1rem 0 auto;
-  height: 3rem;
-  pointer-events: none;
-  z-index: 1;
 }
 
 .bird {
@@ -570,6 +545,7 @@ select {
   justify-content: space-evenly;
   align-items: flex-end;
   z-index: 1;
+
 }
 
 .tree {
